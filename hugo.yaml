@@ -1,0 +1,91 @@
+baseURL: '/'
+languageCode: 'en-us'
+title: 'samenoko Blog'
+theme: 'hugo-stack'
+paginate: 10
+
+DefaultContentLanguage: ja
+
+hasCJKLanguage: true
+
+permalinks:
+  post: /posuto/:year/:slug/
+  page: /:slug/
+
+params:
+  mainSections:
+    - post
+  featuredImageField: image
+  rssFullContent: true
+  favicon: # e.g.: favicon placed in `static/favicon.ico` of your site folder, then set this field to `/favicon.ico` (`/` is necessary)
+
+  footer:
+    since: 2024
+    customText:
+
+  dateFormat:
+    published: 2006/01/02
+    lastUpdated: 2006/01/02 15:04 JST
+
+  sidebar:
+    emoji: 🦈
+    subtitle: ねこはかわいいですねはは。
+    avatar:
+      enabled: true
+      local: true
+      src: img/icon.png
+
+  article:
+    math: true
+    toc: true
+    readingTime: true
+    license:
+      enabled: true
+      default: Licensed under CC BY-NC-SA 4.0
+
+  widgets:
+    homepage:
+      - type: search
+      - type: archives
+        params:
+          limit: 5
+      - type: categories
+        params:
+          limit: 10
+      - type: tag-cloud
+        params:
+          limit: 10
+    page:
+      - type: toc
+menu:
+  main:
+    - identifier: home
+      name: Home
+      url: /
+      weight: 10
+      params:
+        icon: home
+    - identifier: about
+      name: About
+      url: /about
+      weight: 20
+      params:
+        icon: user
+
+markup:
+  goldmark:
+    renderer:
+      ## Set to true if you have HTML content inside Markdown
+      unsafe: true
+  tableOfContents:
+    endLevel: 4
+    ordered: true
+    startLevel: 2
+  highlight:
+    noClasses: false
+    codeFences: true
+    guessSyntax: true
+    lineNoStart: 1
+    lineNos: true
+    lineNumbersInTable: true
+    tabWidth: 4
